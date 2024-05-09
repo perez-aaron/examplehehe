@@ -68,13 +68,13 @@ function App() {
   //   console.log("Deleted ", data.name, " from cart")
   // }
 
-  // function removeCart(product){
-  //   setCart((shoppingcart) => {
-  //     let nval = [...cartItem];
-  //     nval.splice(cartItem.indexOf(product), 1)
-  //     return nval;
-  //   })
-  // }
+  function removeCart(item){
+    setCart((cart) => {
+      let newsheesh = [...cart];
+      newsheesh.splice(cart.indexOf(item), 1)
+      return newsheesh;
+    })
+  }
 
   
 
@@ -85,7 +85,7 @@ function App() {
       <div className='flex'>
         <ProductList product={product} addToCart={addToCart} ></ProductList>
         <div className='flex2'>
-          <ShoppingCart className="flex2" cart={cart} ></ShoppingCart> 
+          <ShoppingCart className="flex2" cart={cart} removeCart={removeCart} count={cart.length} ></ShoppingCart> 
         </div>
       </div>
     </div>

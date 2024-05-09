@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 
-function ShoppingCart({ cart }) {
+function ShoppingCart({ cart, removeCart, count }) {
 //initialization
     const [shoppingcart, setCART] = useState([])
 
@@ -14,7 +14,7 @@ function ShoppingCart({ cart }) {
         <div className ='text1'>
                     SHOPPING CART
                     <div>
-                        In cart: {shoppingcart.quantity}
+                        In cart: {count}
                     </div>
             {
                 shoppingcart?.map((cartItem, cartindex) => {
@@ -23,6 +23,7 @@ function ShoppingCart({ cart }) {
                             <img alt='Alternative' src={cartItem.url} width={40} />
                             <span> {cartItem.name} </span>
                             
+                            <span> | Quantity: {cartItem.quantity} </span>
 
                             <button
                                 onClick={() => {
@@ -33,8 +34,6 @@ function ShoppingCart({ cart }) {
                                 }}
                             >-</button>
 
-
-                            <span> Quantity: {cartItem.quantity} </span>
 
 
                             <button
@@ -49,11 +48,13 @@ function ShoppingCart({ cart }) {
                             
                             <button
                                 onClick={() => {
-                                    setCART((shoppingcart) => {
-                                        let newyes = [...shoppingcart];
-                                        newyes.splice(cartindex, 1)
-                                        return newyes;
-                                      })
+                                    // setCART((cart) => {
+                                    //     let newyes = [...cart];
+                                    //     newyes.splice(cartindex, 1)
+                                    //     return newyes;
+                                    //   })
+                                    removeCart(cartItem)
+                                    console.log(`Removed ${cartItem.name} from the cart`)
                                 }
                                 }
                             >Delete</button>
