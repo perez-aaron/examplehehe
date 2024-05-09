@@ -84,9 +84,9 @@ function App() {
 
       <div className='flex'>
         <ProductList product={product} addToCart={addToCart} ></ProductList>
-        {/* <div className='flex2'>
+        <div className='flex2'>
           <ShoppingCart className="flex2" cart={cart} ></ShoppingCart> 
-        </div> */}
+        </div>
       </div>
     </div>
   );
