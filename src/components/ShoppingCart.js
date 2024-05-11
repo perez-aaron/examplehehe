@@ -3,10 +3,10 @@ import '../App.css';
 
 function ShoppingCart({ cart, removeCart, count }) {
 //initialization
-    const [shoppingcart, setCART] = useState([])
+    const [shoppingcart, setCart2] = useState([])
 
     useEffect(() => {
-        setCART(cart)
+        setCart2(cart)
     }, [cart])
 
 //returning the shopping cart
@@ -30,7 +30,7 @@ function ShoppingCart({ cart, removeCart, count }) {
                                     const _shoppingcart = shoppingcart.map((item, index) => {
                                         return cartindex === index ? { ...item, quantity: item.quantity > 0 ? item.quantity - 1 : 0 } : item
                                     })
-                                    setCART(_shoppingcart)
+                                    setCart2(_shoppingcart)
                                 }}
                             >-</button>
 
@@ -41,14 +41,14 @@ function ShoppingCart({ cart, removeCart, count }) {
                                     const _shoppingcart = shoppingcart.map((item, index) => {
                                         return cartindex === index ? { ...item, quantity: item.quantity + 1 } : item
                                     })
-                                    setCART(_shoppingcart)
+                                    setCart2(_shoppingcart)
                                 }}
                             >+</button>
 
                             
                             <button
                                 onClick={() => {
-                                    // setCART((cart) => {
+                                    // setCart2((cart) => {
                                     //     let newyes = [...cart];
                                     //     newyes.splice(cartindex, 1)
                                     //     return newyes;
